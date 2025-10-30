@@ -15,6 +15,14 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.7.5
+
+      # ADD THIS BLOCK ↓↓↓
+      - name: Provide TF vars for CI (public key)
+        run: |
+          cat > ci.auto.tfvars <<'EOF'
+          public_key = "${{ secrets.TF_PUBLIC_KEY }}"
+          EOF
+
       - run: terraform fmt -check
       - run: terraform init -backend=false
       - run: terraform validate

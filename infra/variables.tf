@@ -22,3 +22,9 @@ variable "use_eip" {
   type    = bool
   default = true # optional: allocate Elastic IP
 }
+# ADD below use_eip variable
+variable "public_key" {
+  description = "Public SSH key material (e.g., ssh-ed25519 AAAA...)"
+  type        = string
+}
+
