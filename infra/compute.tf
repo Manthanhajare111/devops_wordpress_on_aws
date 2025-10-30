@@ -1,7 +1,7 @@
 resource "aws_instance" "wp" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = var.ami_id
   instance_type = var.instance_type
-  subnet_id     = data.aws_subnets.default.ids[0]
+  subnet_id     = var.subnet_id
 
   key_name               = aws_key_pair.wp.key_name
   vpc_security_group_ids = [aws_security_group.wp.id]
