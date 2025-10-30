@@ -1,19 +1,7 @@
-# Use default VPC + default subnet data (keeps beginner setup simple)
-data "aws_vpc" "default" {
-  default = true
-}
-
-data "aws_subnets" "default" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
-  }
-}
-
 resource "aws_security_group" "wp" {
   name        = "exemplifi-wp-sg"
   description = "Web (80/443) and restricted SSH (2222)"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id      = var.vpc_id
 
   # HTTP & HTTPS open to world
   ingress {
@@ -52,6 +40,5 @@ resource "aws_security_group" "wp" {
 # Key pair from your local public key file
 resource "aws_key_pair" "wp" {
   key_name   = var.key_name
-  public_key = file("${path.module}/exemplifi-wp.pub")
+  public_key = file("${path.module}/../exemplifi-wp.pub")
 }
-
