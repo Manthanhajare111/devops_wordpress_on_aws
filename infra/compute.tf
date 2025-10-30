@@ -17,5 +17,5 @@ resource "aws_instance" "wp" {
 resource "aws_eip" "wp" {
   count    = var.use_eip ? 1 : 0
   instance = aws_instance.wp.id
-  vpc      = true
+  domain   = "vpc"  
 }
