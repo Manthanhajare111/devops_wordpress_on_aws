@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "ap-south-1"
+  default = "ap-south-2"
 }
 
 variable "instance_type" {
@@ -22,9 +22,14 @@ variable "use_eip" {
   type    = bool
   default = true # optional: allocate Elastic IP
 }
-# ADD below use_eip variable
-variable "public_key" {
-  description = "Public SSH key material (e.g., ssh-ed25519 AAAA...)"
-  type        = string
+variable "ami_id" {
+  default = "ami-0bd4cda58efa33d23"
 }
 
+variable "vpc_id" {
+  default = "vpc-05c088c454d12c9e0"
+}
+
+variable "subnet_id" {
+  default = "subnet-007be8f457ab5b0cb"
+}
