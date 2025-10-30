@@ -52,5 +52,6 @@ resource "aws_security_group" "wp" {
 # Key pair from your local public key file
 resource "aws_key_pair" "wp" {
   key_name   = var.key_name
-  public_key = var.public_key
+  public_key = file("${path.module}/exemplifi-wp.pub")
 }
+
