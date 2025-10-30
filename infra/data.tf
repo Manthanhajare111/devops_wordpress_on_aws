@@ -2,7 +2,7 @@
 # This will search for Ubuntu 22.04 or 24.04 LTS AMIs published by Canonical
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["099720109477"]  # Canonical's AWS account ID
+  owners      = ["099720109477"] # Canonical's AWS account ID
 
   filter {
     name = "name"

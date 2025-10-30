@@ -20,5 +20,5 @@ variable "my_ip_cidr" {
 
 variable "use_eip" {
   type    = bool
-  default = true  # optional: allocate Elastic IP
+  default = true # optional: allocate Elastic IP
 }
